@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Increment count when button is clicked</title>
+</head>
+
+<style>
+	.slider-container {
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.slider {
+		display: flex;
+		width: 100%;
+		transition: transform 0.9s ease-in-out;
+	}
+
+	.slider img {
+		width: 100%;
+		height: auto;
+	}
+</style>
+
+<!-- <body style="text-align: center;">
+	<h1 style="color: green;">
+		GeeksforGeeks
+	</h1>
+
+	<h4>
+		How to count the number of
+		times a button is clicked?
+	</h4>
+
+	<button id="btn">Click Here!</button>
+
+	<p>
+		Button Clicked <span
+		id="display">0</span> Times
+	</p>
+
+	<script type="text/javascript">
+		var count = 0;
+		var btn = document.getElementById("btn");
+		var disp = document.getElementById("display");
+
+		btn.onclick = function () {
+			count++;
+			disp.innerHTML = count;
+		}
+	</script>
+</body> -->
+
+
+<body>
+
+	<div class="slider-container">
+		<div class="slider">
+			<img src="1.jpg" alt="Client Review">
+			<img src="62bfbb4c926c6.png" alt="Client Review">
+
+			<img src="1.jpg" alt="Client Review">
+
+			<img src="1.jpg" alt="Client Review">
+
+		</div>
+	</div>
+
+	<script>
+		var slider = document.querySelector('.slider');
+		var images = document.querySelectorAll('.slider img');
+
+		var currentImage = 0;
+		var imageWidth = images[0].clientWidth;
+		var interval;
+
+		function slide() {
+			currentImage = (currentImage + 0) % images.length;
+			slider.style.transform = `translateX(-${imageWidth * currentImage}px)`;
+		}
+
+		function startSlide() {
+			interval = setInterval(slide, 3000);
+		}
+
+		function stopSlide() {
+			clearInterval(interval);
+		}
+
+		slider.addEventListener('mouseover', stopSlide);
+		slider.addEventListener('mouseout', startSlide);
+
+		startSlide();
+
+
+	</script>
+</body>
+
+</html>
